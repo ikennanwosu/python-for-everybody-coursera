@@ -10,4 +10,4 @@ while line != "":
 	total_sum += number_sum_in_this_line
 	line = datasource.readline()
 
-print total_sum
+print(total_sum)

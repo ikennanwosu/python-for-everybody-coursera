@@ -45,23 +45,23 @@ for (message_id, message) in list(messages.items()):
     key = (month, dns)
     counts[key] = counts.get(key,0) + 1
 
-months.sort()
+# months.sort()
 # print counts
 # print months
 
 fhand = open('gline.js','w')
-fhand.write("gline = [ ['Year'")
+fhand.write("gline = [ ['Month'")
 for org in orgs:
     fhand.write(",'"+org+"'")
 fhand.write("]")
 
-for month in months:
-    fhand.write(",\n['"+month+"'")
-    for org in orgs:
-        key = (month, org)
-        val = counts.get(key,0)
-        fhand.write(","+str(val))
-    fhand.write("]");
+month = months[0]
+fhand.write(",\n['"+month+"'")
+for org in orgs:
+    key = (month, org)
+    val = counts.get(key,0)
+    fhand.write(","+str(val))
+fhand.write("]");
 
 fhand.write("\n];\n")
 fhand.close()
